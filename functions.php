@@ -53,3 +53,50 @@ require_once( 'library/responsive-images.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
+
+// CUSTOM POST TYPES
+require get_template_directory() . '/inc/custom-post-types.php';
+require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/woocommerce.php';
+
+function artistsalliance_setup(){
+    //enable support for featured images.
+    add_theme_support('post_thumbnails');
+    //enable support for categories.
+    add_theme_support('post-formats', array('aside', 'gallery', ));
+    //menu
+    register_nav_menus(
+        array('menu-1' => esc_html__('primary', 'artistsalliance')
+        )
+    );
+}
+add_action('after_setup_theme', 'artistsalliance_setup');
+
+function artistsalliance_scripts(){
+    wp_enqueue_style('artistsalliance_style', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'artistsalliance_scripts');
+
+//CUSTOM NAV MENU
+function wpb_custom_new_menu(){
+    register_nav_menu('my-custom-menu',__('My Custom Menu'
+));
+}
+add_action('init', 'wpb_custom_new_menu');
+
+
+//CUSTOM SIDEBAR
+function my_custom_sidebar() {
+    register_sidebar(
+        array (
+            'name' => __( 'Custom', 'your-theme-domain' ),
+            'id' => 'custom-side-bar',
+            'description' => __( 'Custom Sidebar', 'your-theme-domain' ),
+            'before_widget' => '<div class="widget-content">',
+            'after_widget' => "</div>",
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        )
+    );
+}
+add_action( 'widgets_init', 'my_custom_sidebar' );

@@ -9,12 +9,23 @@
  */
 
 ?>
+<?php
+//RANDOM IMAGES AND TEXT
+//   $bg = array('colin-1.jpg', 'Fiona-Gray-Flight-of-Light-Promo-Image-1024x714.jpg', 'coffee-perhaps.jpg', 'act-of-passage.jpg', 'Chora-Carleton-watercolour-1024x576.jpg', 'taniwha.jpg', 'Lillico03-0-552-0-0.jpg' ); // array of filenames
+//   $txt = array("Colin McCahon | Kitchener St", "Fiona Gray | Flight of Light", "Erica Van Zon | Coffee Perhaps", "Acts of Passage | Te Tuhi Offsite", "Chora Luz Carleton | Gloaming", "Owen Mapp | Dragons & Taniwha – Fifty Years an Artist Carver", "Kirsty Lillico |Happy Together" ); // array of filenames
+//   $i = rand(0, count($bg)-1); 
+//   $i = rand(0, count($txt)-1); 
+//   $selectedBg = "$bg[$i]"; 
+//   $selectedTxt = "$txt[$i]"; 
+?>
+
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<?php wp_head(); ?>
+		<link href="https://fonts.googleapis.com/css?family=Lato:300|Montserrat:300" rel="stylesheet">
 	</head>
 	<body <?php body_class(); ?>>
 
